@@ -25,13 +25,21 @@ const todosData = [
   
 ]
 
-function App () {
-  const todoarr = todosData.map(item => <TodoItem key= {item.id} item={item}/>)
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      todos: todosData
+    }
+  }
+  render(){
+  const todoarr = this.state.todos.map(item => <TodoItem key= {item.id} item={item}/>)
   return (
     <div className="todo-list">
       {todoarr}
     </div>
   )
+}
 }
 
 export default App
